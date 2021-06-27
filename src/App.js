@@ -6,6 +6,8 @@ import Navbar from "./Components/Navbar";
 import Alien from "./Pages/Alien";
 import Page404 from "./Pages/Page404";
 import AddAlien from "./Pages/AddAlien";
+import Balada from "./Pages/Balada";
+import AddBalada from "./Pages/AddBalada";
 
 function App() {
   return (
@@ -19,6 +21,14 @@ function App() {
 
         <Route exact path="/addAlien">
           <AddAlien />
+        </Route>
+
+        <Route exact path="/balada">
+          <Balada />
+        </Route>
+
+        <Route exact path="/addbalada">
+          <AddBalada />
         </Route>
 
         <Route>

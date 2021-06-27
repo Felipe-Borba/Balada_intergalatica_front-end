@@ -7,7 +7,6 @@ const Item = styled.div`
   border-radius: 10px;
   margin: 2px 0;
   display: flex;
-  //justify-content: space-around;
   padding: 10px;
   font-size: 12px;
   min-width: 10cm;
@@ -41,28 +40,27 @@ const Btn = styled.a`
   color: white;
 `;
 
-function Home() {
+function Balada() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    search("/alien", setData);
+    search("/party", setData);
   }, []);
 
   return (
     <Container>
-      <h1>Aliens cadastrados</h1>
+      <h1>Baladas</h1>
 
-      <Btn href="/addAlien">Adicionar alien</Btn>
+      <Btn href="/addBalada">Adicionar Balada</Btn>
 
       {data.map((item) => {
         console.log(item);
         return (
-          <Item key={item.alienId}>
+          <Item key={item.partyId}>
             <Text>
-              <span className="text">Id: {item.alienId}</span>
-              <span>Nome: {item.name}</span>
-              <span>Idade: {getAge(item.earthBirthday)}</span>
-              <span>{item.banned ? "banido !" : ""}</span>
+              <span className="text">Id: {item.partyId}</span>
+              <span>balada: {item.name}</span>
+              <span>Itens restritos: {item.restrictedItems.join(", ")}</span>
             </Text>
           </Item>
         );
@@ -71,17 +69,4 @@ function Home() {
   );
 }
 
-function getAge(dateString) {
-  var today = new Date();
-  var birthDate = new Date(dateString);
-  var age = today.getFullYear() - birthDate.getFullYear();
-  var m = today.getMonth() - birthDate.getMonth();
-
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
-  }
-
-  return age;
-}
-
-export default Home;
+export default Balada;
