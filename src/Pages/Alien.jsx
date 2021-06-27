@@ -11,6 +11,7 @@ const Item = styled.div`
   justify-content: space-around;
   padding: 10px;
   font-size: 12px;
+  min-width: 10cm;
 `;
 
 const Text = styled.div`
@@ -22,7 +23,21 @@ const Text = styled.div`
 `;
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1%;
+`;
+
+const Btn = styled.a`
   text-align: center;
+  border-radius: 3px;
+  padding: 10px 20px;
+  max-width: 200px;
+  font-weight: 600;
+  border: 2px solid white;
+  background: #a7b307;
+  color: white;
 `;
 
 function Home() {
@@ -35,6 +50,9 @@ function Home() {
   return (
     <Container>
       <h1>Aliens cadastrados</h1>
+
+      <Btn href="/addAlien">Adicionar alien</Btn>
+
       {data.map((item) => {
         console.log(item);
         return (

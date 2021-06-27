@@ -5,6 +5,7 @@ import { GlobalStyle } from "./GlobalStyle";
 import Navbar from "./Components/Navbar";
 import Alien from "./Pages/Alien";
 import Page404 from "./Pages/Page404";
+import AddAlien from "./Pages/AddAlien";
 
 function App() {
   return (
@@ -14,6 +15,10 @@ function App() {
       <Switch>
         <Route exact path="/alien">
           <Alien />
+        </Route>
+
+        <Route exact path="/addAlien">
+          <AddAlien />
         </Route>
 
         <Route>
