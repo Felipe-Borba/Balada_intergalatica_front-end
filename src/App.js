@@ -8,6 +8,7 @@ import Page404 from "./Pages/Page404";
 import AddAlien from "./Pages/AddAlien";
 import Balada from "./Pages/Balada";
 import AddBalada from "./Pages/AddBalada";
+import Home from "./Pages/Home";
 
 function App() {
   return (
@@ -15,6 +16,10 @@ function App() {
       <GlobalStyle />
       <Navbar />
       <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+
         <Route exact path="/alien">
           <Alien />
         </Route>
