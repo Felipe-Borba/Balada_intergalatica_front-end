@@ -9,6 +9,7 @@ import AddAlien from "./Pages/AddAlien";
 import Balada from "./Pages/Balada";
 import AddBalada from "./Pages/AddBalada";
 import Home from "./Pages/Home";
+import CheckIn from "./Pages/CheckIn";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+
+        <Route exact path="/checkIn">
+          <CheckIn />
         </Route>
 
         <Route exact path="/alien">
