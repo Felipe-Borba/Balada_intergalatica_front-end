@@ -45,12 +45,20 @@ function AddAlien() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await api.post("/alien", {
-      nome: name,
-      dataDeNascimento: birthday,
-    });
-    console.log(response);
-    history.push("/alien");
+    api
+      .post("/alien", {
+        nome: name,
+        dataDeNascimento: birthday,
+      })
+      .then((response) => {
+        history.push("/alien");
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.error);
+        }
+        console.log(error.config);
+      });
   };
 
   return (

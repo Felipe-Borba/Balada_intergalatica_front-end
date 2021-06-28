@@ -59,7 +59,7 @@ function CheckIn() {
         festa_id: idParty,
         objetos: temp,
       })
-      .then(function (response) {
+      .then((response) => {
         history.push("/");
       })
       .catch((error) => {

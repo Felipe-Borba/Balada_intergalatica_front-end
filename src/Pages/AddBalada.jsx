@@ -52,14 +52,20 @@ function AddBalada() {
     event.preventDefault();
     let temp = restrictedItems.replace(/\s/g, "");
     temp = temp.split(",");
-    const response = await api
+    api
       .post("/party", {
         nome: name,
         itensProibidos: temp,
       })
-      .catch((err) => console.log(err));
-    //console.log(response);
-    history.push("/balada");
+      .then((response) => {
+        history.push("/balada");
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.error);
+        }
+        console.log(error.config);
+      });
   };
 
   return (

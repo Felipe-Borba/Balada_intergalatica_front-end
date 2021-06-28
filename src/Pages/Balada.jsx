@@ -15,7 +15,7 @@ const Item = styled.div`
 const Text = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 100px;
+  padding: 0 90px;
   justify-content: flex-start;
   .text {
     font-weight: bold;
