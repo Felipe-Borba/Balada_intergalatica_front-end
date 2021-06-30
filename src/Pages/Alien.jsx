@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { search } from "../Api/api";
+import { api, search } from "../Api/api";
 import { getAge } from "../Components/asset";
 
 const Item = styled.div`
@@ -40,10 +41,12 @@ const Btn = styled.a`
   border: 2px solid white;
   background: #a7b307;
   color: white;
+  cursor: pointer;
 `;
 
 function Alien() {
   const [data, setData] = useState([]);
+  let history = useHistory();
 
   useEffect(() => {
     search("/alien", setData);
@@ -56,6 +59,20 @@ function Alien() {
       <Btn href="/addAlien">Adicionar alien</Btn>
 
       {data.map((item) => {
+        const handleClick = async () => {
+          api
+            .delete(`/alien/${item.alienId}`)
+            .then((response) => {
+              history.go(0);
+            })
+            .catch((error) => {
+              if (error.response) {
+                alert(error.response.data.error);
+              }
+              console.log(error.config);
+            });
+        };
+
         return (
           <Item key={item.alienId}>
             <Text>
@@ -63,6 +80,7 @@ function Alien() {
               <span>Nome: {item.name}</span>
               <span>Idade: {getAge(item.earthBirthday)}</span>
               <span>{item.banned ? "banido !" : ""}</span>
+              <Btn onClick={handleClick}>excluir</Btn>
             </Text>
           </Item>
         );
