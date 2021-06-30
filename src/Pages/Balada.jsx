@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { search } from "../Api/api";
+import { api, search } from "../Api/api";
 
 const Item = styled.div`
   box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.1);
@@ -38,10 +39,12 @@ const Btn = styled.a`
   border: 2px solid white;
   background: #a7b307;
   color: white;
+  cursor: pointer;
 `;
 
 function Balada() {
   const [data, setData] = useState([]);
+  let history = useHistory();
 
   useEffect(() => {
     search("/party", setData);
@@ -54,12 +57,28 @@ function Balada() {
       <Btn href="/addBalada">Adicionar Balada</Btn>
 
       {data.map((item) => {
+        const handleClick = async () => {
+          api
+            .delete(`/party/${item.partyId}`)
+            .then((response) => {
+              history.go(0);
+            })
+            .catch((error) => {
+              if (error.response) {
+                alert(error.response.data.error);
+              }
+              console.log(error.config);
+            });
+        };
+
         return (
           <Item key={item.partyId}>
             <Text>
               <span className="text">Id: {item.partyId}</span>
               <span>balada: {item.name}</span>
               <span>Itens restritos: {item.restrictedItems.join(", ")}</span>
+
+              <Btn onClick={handleClick}>excluir</Btn>
             </Text>
           </Item>
         );
