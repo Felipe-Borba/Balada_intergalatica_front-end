@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { searchBacklog } from "../Api/api";
+import { api, deleteById, searchBacklog } from "../Api/api";
 import { getAge } from "../Components/asset";
 
 const Item = styled.div`
@@ -30,8 +31,21 @@ const Container = styled.div`
   padding: 1%;
 `;
 
+const Btn = styled.a`
+  text-align: center;
+  border-radius: 3px;
+  padding: 10px 20px;
+  max-width: 200px;
+  font-weight: 600;
+  border: 2px solid white;
+  background: #a7b307;
+  color: white;
+  cursor: pointer;
+`;
+
 function Backlog() {
   const [data, setData] = useState([]);
+  let history = useHistory();
 
   useEffect(() => {
     searchBacklog(setData);
@@ -42,6 +56,20 @@ function Backlog() {
       <h1>Backlog</h1>
 
       {data.map((item) => {
+        const handleClick = async () => {
+          api
+            .delete(`/register/backlog/${item.backlogId}`)
+            .then((response) => {
+              history.go(0);
+            })
+            .catch((error) => {
+              if (error.response) {
+                alert(error.response.data.error);
+              }
+              console.log(error.config);
+            });
+        };
+
         return (
           <Item key={item.backlogId}>
             <Text>
@@ -56,6 +84,8 @@ function Backlog() {
 
               <span>check in: {item.checkIn}</span>
               <span>check out: {item.checkOut}</span>
+
+              <Btn onClick={handleClick}>excluir</Btn>
             </Text>
           </Item>
         );
