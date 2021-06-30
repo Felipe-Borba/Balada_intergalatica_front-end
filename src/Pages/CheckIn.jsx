@@ -86,13 +86,11 @@ function CheckIn() {
             id da balada:
             <Input
               type="text"
-              placeholder="separar os itens por virgula"
               onChange={(event) => setIdParty(event.target.value)}
             />
           </Label>
 
           <Label>
-            {/* <p>data de nascimento:</p> */}
             itens do alien:
             <Input
               type="text"

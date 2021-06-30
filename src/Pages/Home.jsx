@@ -75,7 +75,11 @@ function Home() {
           <Item key={item.registerId}>
             <Text>
               <span>Id do alien: {item.alienId}</span>
+              <span>Nome do alien: {item.alien.name}</span>
+
               <span>Id da balada: {item.partyId}</span>
+              <span>Nome da balada: {item.party.name}</span>
+
               <span>checkIn: {item.checkIn}</span>
               <Btn onClick={handleClick}>check out</Btn>
             </Text>
