@@ -71,12 +71,17 @@ function Balada() {
             });
         };
 
+        let restrictedItems = item.restrictedItems;
+        if (restrictedItems) {
+          restrictedItems = restrictedItems.join(", ");
+        }
+
         return (
           <Item key={item.partyId}>
             <Text>
               <span className="text">Id: {item.partyId}</span>
               <span>balada: {item.name}</span>
-              <span>Itens restritos: {item.restrictedItems.join(", ")}</span>
+              <span>Itens restritos: {restrictedItems}</span>
 
               <Btn onClick={handleClick}>excluir</Btn>
             </Text>

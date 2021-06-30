@@ -50,8 +50,11 @@ function AddBalada() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let temp = restrictedItems.replace(/\s/g, "");
-    temp = temp.split(",");
+    let temp;
+    if (restrictedItems) {
+      temp = restrictedItems.replace(/\s/g, "");
+      temp = temp.split(",");
+    }
     api
       .post("/party", {
         nome: name,
