@@ -54,7 +54,6 @@ function Balada() {
       <Btn href="/addBalada">Adicionar Balada</Btn>
 
       {data.map((item) => {
-        console.log(item);
         return (
           <Item key={item.partyId}>
             <Text>

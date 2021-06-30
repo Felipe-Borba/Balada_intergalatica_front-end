@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { search } from "../Api/api";
+import { getAge } from "../Components/asset";
 
 const Item = styled.div`
   box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.1);
@@ -55,7 +56,6 @@ function Alien() {
       <Btn href="/addAlien">Adicionar alien</Btn>
 
       {data.map((item) => {
-        console.log(item);
         return (
           <Item key={item.alienId}>
             <Text>
@@ -69,19 +69,6 @@ function Alien() {
       })}
     </Container>
   );
-}
-
-function getAge(dateString) {
-  var today = new Date();
-  var birthDate = new Date(dateString);
-  var age = today.getFullYear() - birthDate.getFullYear();
-  var m = today.getMonth() - birthDate.getMonth();
-
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
-  }
-
-  return age;
 }
 
 export default Alien;
