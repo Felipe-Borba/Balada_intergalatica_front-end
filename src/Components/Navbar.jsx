@@ -26,6 +26,7 @@ const Navbar = () => {
       <Btn href="/">Home</Btn>
       <Btn href="/alien">Alien</Btn>
       <Btn href="/balada">Balada</Btn>
+      <Btn href="/backlog">backlog</Btn>
     </StyledHeader>
   );
 };

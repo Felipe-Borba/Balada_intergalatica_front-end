@@ -10,6 +10,7 @@ import Balada from "./Pages/Balada";
 import AddBalada from "./Pages/AddBalada";
 import Home from "./Pages/Home";
 import CheckIn from "./Pages/CheckIn";
+import Backlog from "./Pages/Backlog";
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+
+        <Route exact path="/backlog">
+          <Backlog />
         </Route>
 
         <Route exact path="/checkIn">
