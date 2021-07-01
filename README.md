@@ -12,7 +12,7 @@ O código do Back-end pode ser acessado em: [Balada_intergalatica_back-end](http
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/Felipe-Borba/Balada_intergalatica_front-end/blob/master/screeenShot/MainPage.png/468x300?text=App+Screenshot)
 
 ## Run Locally
 
@@ -26,6 +26,12 @@ Go to the project directory
 
 ```bash
   cd Balada_intergalatica_front-end
+```
+
+Install dependencies
+
+```bash
+  npm install
 ```
 
 Runs the app in the development mode
