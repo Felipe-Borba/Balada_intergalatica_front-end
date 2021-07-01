@@ -12,7 +12,7 @@ O código do Back-end pode ser acessado em: [Balada_intergalatica_back-end](http
 
 ## Screenshots
 
-![App Screenshot](https://github.com/Felipe-Borba/Balada_intergalatica_front-end/blob/master/screeenShot/MainPage.png/468x300?text=App+Screenshot)
+![App Screenshot](https://github.com/Felipe-Borba/Balada_intergalatica_front-end/blob/master/screeenShot/MainPage.png)
 
 ## Run Locally
 
